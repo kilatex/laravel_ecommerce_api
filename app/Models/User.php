@@ -46,10 +46,11 @@ class User extends Authenticatable
     ];
 
     public function customers(){
-        return $this->hasMany('App\Models\Customer');
+        return $this->hasMany(Customer::class);
     }
+    
     public function admins(){
-        return $this->hasMany('App\Models\Admin');
+        return $this->hasMany(Admin::class);
     }
 
 }
