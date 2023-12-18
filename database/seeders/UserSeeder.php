@@ -15,11 +15,11 @@ class UserSeeder extends Seeder
     {
         User::factory()
         ->count(5)
-        ->hasAdmin()
+        ->hasAdmins()
         ->create();
         User::factory()
         ->count(5)
-        ->hasCustomer()
+        ->hasCustomers()
         ->create();
     }
 }
