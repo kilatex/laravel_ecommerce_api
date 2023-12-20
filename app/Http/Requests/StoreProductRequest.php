@@ -20,7 +20,6 @@ class StoreProductRequest extends FormRequest
             'stock' => 'required|integer',
             'description' => 'nullable|string',
             'img' => 'required|string'
-            // Add other validation rules as needed
         ];
     }
 }
