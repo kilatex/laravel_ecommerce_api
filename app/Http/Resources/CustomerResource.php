@@ -17,6 +17,7 @@ class CustomerResource extends JsonResource
         return [
             'id' => $this->id,
             'address' => $this->address,
+            'user_id' => $this->user_id,
             'user' => new UserResource($this->whenLoaded('user')),
         ];
     }
