@@ -22,7 +22,7 @@ class StoreCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|int|exists:users,id',
+            'user_id' => 'required|int|exists:users,id|unique:customers,user_id',
             'address' => 'required|string'
         ];
     }
