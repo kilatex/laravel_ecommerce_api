@@ -27,6 +27,14 @@ Route::apiResource('products', ProductController::class);
 Route::apiResource('users', UserController::class);
 Route::apiResource('admins', AdminController::class);
 
+// User Routes
+Route::group([
+    'middleware' => 'api',
+
+], function ($router) {
+    Route::post('/orders','App\Http\Controllers\OrderController@store');
+    Route::get('/orders', 'App\Http\Controllers\OrderController@index');    
+});
 
 Route::apiResource('customers', CustomerController::class);
 
