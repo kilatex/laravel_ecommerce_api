@@ -33,7 +33,10 @@ Route::group([
 
 ], function ($router) {
     Route::post('/orders','App\Http\Controllers\OrderController@store');
-    Route::get('/orders', 'App\Http\Controllers\OrderController@index');    
+    Route::get('/orders', 'App\Http\Controllers\OrderController@index');   
+    Route::get('/orders/{order}', 'App\Http\Controllers\OrderController@show');    
+    Route::delete('/orders/{order}', 'App\Http\Controllers\OrderController@destroy');    
+
 });
 
 Route::apiResource('customers', CustomerController::class);

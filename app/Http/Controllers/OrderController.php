@@ -34,30 +34,16 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
+        return new OrderResource($order);
+    } 
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
     {
-        //
+       $order->delete();
+
+       return response()->json(['message' => 'ORDER DELETED','users' => $order],200);
     }
 }

@@ -9,7 +9,6 @@ use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use App\Models\User;
 
-use function PHPUnit\Framework\isEmpty;
 
 class CustomerController extends Controller
 {
