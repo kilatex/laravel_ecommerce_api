@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+    
 Route::apiResource('products', ProductController::class);
 Route::apiResource('users', UserController::class);
 Route::apiResource('admins', AdminController::class);
@@ -36,6 +36,12 @@ Route::group([
     Route::get('/orders', 'App\Http\Controllers\OrderController@index');   
     Route::get('/orders/{order}', 'App\Http\Controllers\OrderController@show');    
     Route::delete('/orders/{order}', 'App\Http\Controllers\OrderController@destroy');    
+    /* CART ROUTES */
+    Route::post('/cart','App\Http\Controllers\CartController@store');
+    Route::get('/cart', 'App\Http\Controllers\CartController@index');   
+    Route::get('/cart/{cart}', 'App\Http\Controllers\CartController@show');    
+    Route::delete('/cart/{cart}', 'App\Http\Controllers\CartController@destroy');    
+
 
 });
 
