@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('customer_id');
             $table->integer('product_id');
+            $table->date('delivery_date');
             $table->timestamps();
         });
     }

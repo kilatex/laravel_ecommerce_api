@@ -10,7 +10,8 @@ class Order extends Model
     use HasFactory;
     protected $fillable = [
         'customer_id',
-        'product_id'
+        'product_id',
+        'delivery_date'
     ];
 
     public function customer(){
@@ -19,8 +20,5 @@ class Order extends Model
 
     public function product(){
         return $this->belongsTo('App\Models\Product','product_id');
-    }
-    public function delivery(){
-        return $this->hasOne('App\Models\Delivery');
     }
 }
