@@ -10,7 +10,11 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
-{
+{   
+
+    public function __construct() {
+        $this->middleware('auth:api', ['except' => ['update']]);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -21,8 +25,8 @@ class UserController extends Controller
     }
 
     public function store(StoreUserRequest $request){
-        $product = User::create($request->validated());
-        return new UserResource($product);
+        $user = User::create($request->validated());
+        return new UserResource($user);
     }
 
     public function show(User $user){

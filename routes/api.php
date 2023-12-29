@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
@@ -19,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(AuthController::class)->group(function () {
+    Route::post('login', 'login');
+    Route::post('register', 'register');
+    Route::post('logout', 'logout');
+    Route::post('refresh', 'refresh');
 });
-    
 Route::apiResource('products', ProductController::class);
 Route::apiResource('users', UserController::class);
 Route::apiResource('admins', AdminController::class);
@@ -41,7 +44,6 @@ Route::group([
     Route::get('/cart', 'App\Http\Controllers\CartController@index');   
     Route::get('/cart/{cart}', 'App\Http\Controllers\CartController@show');    
     Route::delete('/cart/{cart}', 'App\Http\Controllers\CartController@destroy');    
-
 
 });
 
